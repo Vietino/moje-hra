@@ -103,6 +103,43 @@ void vesnice(int& zivoty, int& maxzivoty, int& energie, int& maxenergie, int& ut
         }
     }
 }
+void bitvamonstrum1 (int &zivoty, int &energie, int &utok) {
+int zivotymonstra = 6;
+int utokmonstra = 2;
+int akce ;
+
+
+cout << " Narazil jsi na male monstrum!" << endl;
+
+while (zivoty > 0 && zivotymonstra > 0 ){
+    cout << "Tve zivoty: " << zivoty << ", Energie: " << energie << endl ;
+    cout << " Zivoty monstra: " << zivotymonstra << endl ;
+    cout << " 1 - utocit " << endl ;
+    cout << " 2 - odpocivat (+1 energie )" << endl ;
+    cin >> akce ;
+
+if ( akce == 1 && energie > 0 ){
+    zivotymonstra -= utok ;
+    energie--;
+    cout << " Zautocil jsi a zpusobil " << utok << "poskozeni!" << endl ;
+}else if (akce == 2){
+energie++;
+cout << " Odpocivas, +1 energie " << endl ;
+}else {
+cout << " Nemas dost energie nebo neplatna volba " << endl ;
+}
+
+if (zivotymonstra >0) {
+    zivoty -= utokmonstra ;
+    cout << "Monstrum te zranilo za " << utokmonstra << " zivotu!" << endl ;
+    }
+}if (zivoty >0) {
+cout << " Zvitezil jsi nad monstrem! " << endl ;
+}else {
+cout << " Byl jsi porazen..." << endl ;
+
+}
+}
 int main(){
 int volba = 0 ;
 int maxzivoty = 0 ;
@@ -170,11 +207,13 @@ switch (volba) {
     case 1 : vesnice(zivoty, maxzivoty, energie, maxenergie, utok, zlato);
     break ;
     case 2 :
+        bitvamonstrum1 (zivoty, energie, utok);
+
         break ;
     case 3 :
         break ;
     default : cout << "Neplatna volba, zkus znovu." << endl ;
-    continue;
+
 
 }
 
