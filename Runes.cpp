@@ -280,11 +280,16 @@ switch (volba) {
     break ;
     case 2 :
          bitvamonstrum1 (classa, zivoty, energie, utok, zlato, exp);
+            if (zivoty <= 0) {
+                cout << "\nUmrel jsi a hra se resetuje" << endl ;
+                return 0;
+                }
+
         break ;
     case 3 :
         break ;
     default : cout << "Neplatna volba, zkus znovu." << endl ;
-
+}
 
 }
 
@@ -302,5 +307,5 @@ switch (volba) {
 
 
 
-}
+
 
